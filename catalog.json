@@ -1,0 +1,89 @@
+{
+  "version": 1,
+  "templates": [
+    {
+      "id": "device-overview",
+      "name": "Resumo do dispositivo",
+      "category": "Diagnóstico",
+      "description": "Mostra fabricante, modelo, versão do Android e nível da API.",
+      "cells": [
+        {
+          "command": "getprop ro.product.manufacturer",
+          "continueOnError": true
+        },
+        {
+          "command": "getprop ro.product.model",
+          "continueOnError": true
+        },
+        {
+          "command": "getprop ro.build.version.release",
+          "continueOnError": true
+        },
+        {
+          "command": "getprop ro.build.version.sdk",
+          "continueOnError": false
+        }
+      ]
+    },
+    {
+      "id": "build-information",
+      "name": "Versão e compilação",
+      "category": "Diagnóstico",
+      "description": "Consulta versão, patch de segurança e tipo de compilação.",
+      "cells": [
+        {
+          "command": "getprop ro.build.display.id",
+          "continueOnError": true
+        },
+        {
+          "command": "getprop ro.build.version.security_patch",
+          "continueOnError": true
+        },
+        {
+          "command": "getprop ro.build.type",
+          "continueOnError": false
+        }
+      ]
+    },
+    {
+      "id": "battery-status",
+      "name": "Estado da bateria",
+      "category": "Hardware",
+      "description": "Exibe carga, temperatura, tensão e estado reportados pelo Android.",
+      "cells": [
+        {
+          "command": "dumpsys battery",
+          "continueOnError": false
+        }
+      ]
+    },
+    {
+      "id": "storage-overview",
+      "name": "Armazenamento disponível",
+      "category": "Armazenamento",
+      "description": "Mostra espaço total e disponível nas partições montadas.",
+      "cells": [
+        {
+          "command": "df -h",
+          "continueOnError": false
+        }
+      ]
+    },
+    {
+      "id": "display-settings",
+      "name": "Resolução e densidade da tela",
+      "category": "Tela",
+      "description": "Consulta resolução e densidade atuais da tela.",
+      "cells": [
+        {
+          "command": "wm size",
+          "continueOnError": true
+        },
+        {
+          "command": "wm density",
+          "continueOnError": false
+        }
+      ]
+    }
+  ]
+}

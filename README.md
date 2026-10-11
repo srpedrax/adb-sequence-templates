@@ -20,3 +20,8 @@ Keep templates focused, explain what they inspect, and avoid commands that delet
 modify, upload, or expose private data. Review every command on a test device before
 opening a pull request. Do not include PINs, credentials, personal data, or device
 identifiers in the catalog.
+
+Keep template IDs unique and stable, use non-empty shell commands, and preserve
+catalog version 1 while adding compatible templates. The app validates the catalog
+before displaying it and enforces a 100-cell limit when copying templates into a
+sequence.
